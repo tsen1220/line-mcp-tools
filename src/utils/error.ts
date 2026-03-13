@@ -8,10 +8,9 @@
 export function formatLineError(error: unknown): string {
   if (!(error instanceof Error)) return 'Unknown error';
 
-  const err = error as unknown as Record<string, unknown>;
-
-  if (typeof err.statusCode === 'number') {
-    return `LINE API error (HTTP ${err.statusCode})`;
+  const statusCode = (error as Error & { statusCode?: unknown }).statusCode;
+  if (typeof statusCode === 'number') {
+    return `LINE API error (HTTP ${statusCode})`;
   }
 
   return error.message;

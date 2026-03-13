@@ -134,13 +134,13 @@ export function registerMessagingTools(
           typeof parsed !== 'object' ||
           parsed === null ||
           Array.isArray(parsed) ||
-          !('type' in parsed)
+          (parsed.type !== 'bubble' && parsed.type !== 'carousel')
         ) {
           return {
             content: [
               {
                 type: 'text',
-                text: 'Invalid Flex container: must be a JSON object with a "type" field (bubble or carousel)',
+                text: 'Invalid Flex container: must be a JSON object with "type" set to "bubble" or "carousel"',
               },
             ],
             isError: true,

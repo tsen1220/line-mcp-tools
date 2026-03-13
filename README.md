@@ -12,7 +12,7 @@ MCP Server for LINE Messaging API — let AI agents send messages to LINE users,
 | `push_flex_message` | Send a Flex Message (rich layout) |
 | `broadcast_text_message` | Broadcast text to all followers |
 | `multicast_text_message` | Send text to multiple users (max 500) |
-| `get_user_profile` | Get user display name, picture, status |
+| `get_user_profile` | Get user display name, picture, status, and language |
 | `get_group_summary` | Get group name and picture |
 
 ## Prerequisites
@@ -33,7 +33,7 @@ MCP Server for LINE Messaging API — let AI agents send messages to LINE users,
 
 ### Enable Group Features (Optional)
 
-To use `get_group_summary`, `get_group_member_ids`, or send messages to groups:
+To use `get_group_summary` or send messages to groups:
 
 1. In [LINE Official Account Manager](https://manager.line.biz/) → **Settings** → **Account settings** → enable **Allow bot to join groups**
 2. In [LINE Official Account Manager](https://manager.line.biz/) → **Settings** → **Response settings** → enable **Webhook**
@@ -109,7 +109,7 @@ src/
 │   └── line.ts                   # LineService interface + LineMessagingClient
 ├── tools/
 │   ├── messaging.ts              # 6 messaging tools
-│   └── profile.ts                # 3 profile/group tools
+│   └── profile.ts                # 2 profile/group tools
 └── utils/
     └── error.ts                  # Error formatting utility
 ```

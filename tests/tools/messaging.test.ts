@@ -14,7 +14,6 @@ function createMockLineService(): LineService {
     multicastTextMessage: vi.fn().mockResolvedValue(undefined),
     getUserProfile: vi.fn(),
     getGroupSummary: vi.fn(),
-    getGroupMemberIds: vi.fn(),
   };
 }
 

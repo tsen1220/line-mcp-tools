@@ -1,9 +1,8 @@
 /**
- * Safely format errors from LINE API calls.
+ * Format errors from LINE API calls into readable messages.
  *
- * LINE SDK errors may contain HTTP response bodies that include
- * partial Authorization headers or other sensitive data.
- * This function extracts only the HTTP status code to avoid leaking secrets.
+ * For LINE API errors (with statusCode), returns the HTTP status code.
+ * For other errors, returns the error message for debuggability.
  */
 export function formatLineError(error: unknown): string {
   if (!(error instanceof Error)) return 'Unknown error';
